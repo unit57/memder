@@ -130,6 +130,7 @@ p {
     color: #ffffff;
     margin-bottom: 0;
     transition: 1S;
+    padding-bottom: 20px;
 }
 #profileImageDiv {
     width:300px;
@@ -241,6 +242,14 @@ p {
     margin: 0;
     padding: 0;
     color: #01abaa;
+}
+
+.infoDiv input {
+    margin-top: 4px;
+}
+
+.infoDiv select {
+    margin-top: 4px;
 }
 
 /* LOG IN */
@@ -356,7 +365,7 @@ p {
     margin-bottom: 0;
     padding:10px 20px 0 20px;
     transition:.3s;
-    height: 450px;
+    height: 455px;
 }
 .signUpDiv input, select {
     display:flex;
@@ -377,8 +386,8 @@ input[type='checkbox'] {
   float: right;
   position: relative;
   width: 20px;
-  right: 165px;
-  bottom: 3px;
+  right: 155px;
+  bottom: 2px;
 }
 
 

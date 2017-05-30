@@ -7,6 +7,7 @@ import axios from 'axios';
 import UserStatus from "./components/userStatus";
 import Landing from './components/landing';
 import About from "./components/about";
+import Tos from "./components/tos";
 import SignUp from "./components/signup";
 import Profile from "./components/profile";
 import Main from "./components/main";
@@ -170,12 +171,30 @@ export default class App extends Component {
       console.log(error);
     });
   }
+
+  shuffle(memes) {
+    let length = memes.length;
+    let last;
+    let random;
+
+    while (length) {
+      random = Math.floor(Math.random() * (length -= 1));
+      last = memes[length];
+      memes[length] = memes[random];
+      memes[random] = last;
+    }
+    return memes;
+  }
+
 // returns an object with the memes stored in getMemes end point
   mainMemeList() {
     axios.get("https://memedr.herokuapp.com/getMemes")
       .then((response) => {
+
+        let theMemes = this.shuffle(response.data.memes);
+
         this.setState({
-          memes: response.data.memes
+          memes: theMemes
         });
       }).catch((error) => {
         console.log(error);
@@ -230,6 +249,7 @@ export default class App extends Component {
               <Route path="/" exact render={() => this.checkLogin("/")}></Route>
               <Route path="/signup" render={() => this.checkLogin("/signup")}></Route>
               <Route path="/about" component={About}></Route>
+              <Route path="/tos" component={Tos}></Route>
 
               <Route path="/main" render={() => this.checkLogin("/main")}></Route>
               <Route path="/profile" render={() => this.checkLogin("/profile")}></Route>
