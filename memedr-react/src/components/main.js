@@ -52,11 +52,12 @@ export default class Main extends Component {
   render() {
     return (
       <div className="memeBorder bigBorder">
-        <div className="tempBorder">
-          <div className="navButtons">
+        <div className="navButtons">
             <NavLink to="/profile"><button className="btn btn-info" type="submit">My Profile</button></NavLink>&nbsp;
             <NavLink to="/matches"><button className="btn btn-info" type="submit">My Matches</button></NavLink>
           </div>
+        <div className="tempBorder">
+          
           <MemeList memes={this.props.memes}
             response={this.props.userData}
             likeMeme={this.likeMeme}
